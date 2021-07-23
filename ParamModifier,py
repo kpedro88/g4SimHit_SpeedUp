@@ -102,3 +102,101 @@ class RusRoWorldGamma(ParamModifier):
     def apply(self, process):
         process.g4SimHits.StackingAction.RusRoWorldGamma = cms.double(self.params[0])
         return process
+
+class RusRoHcalNeutronEnergyLimit(ParamModifier):
+    def __init__(self):
+        super(RusRoNeutronEnergyLimit,self).__init__(1)
+    def apply(self, process):
+        process.g4SimHits.StackingAction.RusRoNeutronEnergyLimit = cms.double(self.params[0])
+        return process
+
+class RusRoEcalNeutron(ParamModifier):
+    def __init__(self):
+        super(RusRoEcalNeutron,self).__init__(1)
+    def apply(self, process):
+        process.g4SimHits.StackingAction.RusRoEcalNeutron = cms.double(self.params[0])
+        return process
+
+class RusRoHcalNeutron(ParamModifier):
+    def __init__(self):
+        super(RusRoHcalNeutron,self).__init__(1)
+    def apply(self, process):
+        process.g4SimHits.StackingAction.RusRoHcalNeutron = cms.double(self.params[0])
+        return process
+
+class RusRoMuonIronNeutron(ParamModifier):
+    def __init__(self):
+        super(RusRoMuonIronNeutron,self).__init__(1)
+    def apply(self, process):
+        process.g4SimHits.StackingAction.RusRoMuonIronNeutron = cms.double(self.params[0])
+        return process
+
+class RusRoPreShowerNeutron(ParamModifier):
+    def __init__(self):
+        super(RusRoPreShowerNeutron,self).__init__(1)
+    def apply(self, process):
+        process.g4SimHits.StackingAction.RusRoPreShowerNeutron = cms.double(self.params[0])
+        return process
+
+class RusRoCastorNeutron(ParamModifier):
+    def __init__(self):
+        super(RusRoCastorNeutron,self).__init__(1)
+    def apply(self, process):
+        process.g4SimHits.StackingAction.RusRoCastorNeutron = cms.double(self.params[0])
+        return process
+
+class RusRoWorldNeutron(ParamModifier):
+    def __init__(self):
+        super(RusRoWorldNeutron,self).__init__(1)
+    def apply(self, process):
+        process.g4SimHits.StackingAction.RusRoWorldNeutron = cms.double(self.params[0])
+        return process
+
+class RusRoProtonEnergyLimit(ParamModifier):
+    def __init__(self):
+        super(RusRoProtonEnergyLimit,self).__init__(1)
+    def apply(self, process):
+        process.g4SimHits.StackingAction.RusRoProtonEnergyLimit = cms.double(self.params[0])
+        return process
+
+class RusRoEcalProton(ParamModifier):
+    def __init__(self):
+        super(RusRoEcalProton,self).__init__(1)
+    def apply(self, process):
+        process.g4SimHits.StackingAction.RusRoEcalProton = cms.double(self.params[0])
+        return process
+
+class RusRoHcalProton(ParamModifier):
+    def __init__(self):
+        super(RusRoHcalProton,self).__init__(1)
+    def apply(self, process):
+        process.g4SimHits.StackingAction.RusRoHcalProton = cms.double(self.params[0])
+        return process
+
+class RusRoMuonIronProton(ParamModifier):
+    def __init__(self):
+        super(RusRoMuonIronProton,self).__init__(1)
+    def apply(self, process):
+        process.g4SimHits.StackingAction.RusRoMuonIronProton = cms.double(self.params[0])
+        return process
+
+class RusRoPreShowerProton(ParamModifier):
+    def __init__(self):
+        super(RusRoPreShowerProton,self).__init__(1)
+    def apply(self, process):
+        process.g4SimHits.StackingAction.RusRoPreShowerProton = cms.double(self.params[0])
+        return process
+
+class RusRoCastorProton(ParamModifier):
+    def __init__(self):
+        super(RusRoCastorProton,self).__init__(1)
+    def apply(self, process):
+        process.g4SimHits.StackingAction.RusRoCastorProton = cms.double(self.params[0])
+        return process
+
+class RusRoWorldProton(ParamModifier):
+    def __init__(self):
+        super(RusRoWorldProton,self).__init__(1)
+    def apply(self, process):
+        process.g4SimHits.StackingAction.RusRoWorldProton = cms.double(self.params[0])
+        return process
