@@ -1,12 +1,23 @@
 #!/bin/bash
 
+source Parameters.sh
 source Parameters_two.sh $varnames
-echo ${my_array[@]}
 
-for VAL in "${my_array[@]}"; do
-        LOG=log_${varnames}_${VAL/0./}.txt
-        ROOT=PPD-RunIISummer20UL17Sim-${VAL/0./}.root
-        echo $varnames $VAL
-        cmsRun PPD_RunIISummer20UL17SIM_0_cfg.py paramNames=$varnames paramValues=$VAL >& $LOG
-        echo $VAL $(grep "Total loop" $LOG | tail -n 1 | rev | cut -d' ' -f1 | rev)
-done
+if [ $# -eq 0 ]; then
+        for par in "${!parameters[@]}"; do
+                for VAL in "${!parameters[$par]}"; do
+                        LOG=log_${par}_${VAL}.txt
+                        echo $par $VAL
+                        cmsRun PPD_RunIISummer20UL17SIM_0_cfg.py paramNames=$par paramValues=$VAL >& $LOG
+                        echo $VAL $(grep "Total loop" $LOG | tail -n 1 | rev | cut -d' ' -f1 | rev)
+                done
+        done
+else
+        for VAL in "${!parameters[$varnames]}"; do
+                LOG=log_${varnames}_${VAL}.txt
+                echo $varnames $VAL
+                cmsRun PPD_RunIISummer20UL17SIM_0_cfg.py paramNames=$varnames paramValues=$VAL >& $LOG
+                echo $VAL $(grep "Total loop" $LOG | tail -n 1 | rev | cut -d' ' -f1 | rev)
+        done
+
+fi
