@@ -14,7 +14,7 @@ if [ $# -eq 0 ]; then
                         LOG=log_${par}_${VAL}.txt          # initialize log for the current parameter and value 
                         PRU=changes_${par}.txt             # initialize register for current run time and value
                         echo $par $VAL
-                        cmsRun PPD_RunIISummer20UL17SIM_0_cfg.py paramNames=$par paramValues=$VAL >& $LOG             # logs the cmsRun, parsing the current paramter and value
+                        cmsRun PPD_RunIISummer20UL17SIM_0_cfg.py paramNames=$par paramValues=$VAL >& $LOG             # logs the cmsRun, parsing the current parameter and value
                         echo $VAL $(grep "Total loop" $LOG | tail -n 1 | rev | cut -d' ' -f1 | rev) | tee -a $PRU     # prints the current value and Total loop time of the cmsRun and save the results in a .txt file
                 done
         done
@@ -23,7 +23,7 @@ else
                 LOG=log_${varnames}_${VAL}.txt             # initialize log for the current parameter and value
                 PRU1=changes_${varnames}.txt               # initialize register for current run time and value
                 echo $varnames $VAL
-                cmsRun PPD_RunIISummer20UL17SIM_0_cfg.py paramNames=$varnames paramValues=$VAL >& $LOG               # logs the cmsRun, parsing the current paramter and value
+                cmsRun PPD_RunIISummer20UL17SIM_0_cfg.py paramNames=$varnames paramValues=$VAL >& $LOG               # logs the cmsRun, parsing the current parameter and value
                 echo $VAL $(grep "Total loop" $LOG | tail -n 1 | rev | cut -d' ' -f1 | rev) | tee -a $PRU1           # prints the current value and Total loop time of the cmsRun and save the results in a .txt file
         done
 fi
