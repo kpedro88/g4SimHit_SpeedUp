@@ -14,7 +14,7 @@ for varnames in $@; do
         elif [ "$varnames" = "RusRoEcalGamma" ]; then
                 parameters[RusRoEcalGamma]=RusRo_vals[@]
         elif [ "$varnames" = "RusRoHcalGamma" ]; then
-                parameters[RusRoEcalGamma]=RusRo_vals[@]
+                parameters[RusRoHcalGamma]=RusRo_vals[@]
         elif [ "$varnames" = "RusRoMuonIronGamma" ]; then
                 parameters[RusRoMuonIronGamma]=RusRo_vals[@]
         elif [ "$varnames" = "RusRoNeutronEnergyLimit" ]; then
