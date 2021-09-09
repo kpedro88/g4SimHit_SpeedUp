@@ -11,7 +11,7 @@ RusRo_energy=(200 250 300 350 400 450 500 550 600 650 700 750 800)
 # assigning array elements a specific value list
 parameters[EnergyThSimple]=magnetic_vals[@]
 parameters[DeltaOneStepSimple]=magnetic_vals[@]
-parameters[DeltaShordSimple]=magnetic_vals[@]
+parameters[DeltaChordSimple]=magnetic_vals[@]
 parameters[RusRoGammaEnergyLimit]=RusRo_energy[@]
 parameters[RusRoNeutronEnergyLimit]=RusRo_energy[@]
 #parameters[RusRoElectronEnergyLimit]=RusRo_energy[@]
