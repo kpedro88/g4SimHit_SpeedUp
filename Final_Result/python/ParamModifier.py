@@ -61,6 +61,27 @@ class DeltaIntersectionSimple(ParamModifier):
         process.g4SimHits.MagneticField.ConfGlobalMFM.OCMS.StepperParam.DeltaIntersectionSimple = cms.double(self.params[0])
         return process
 
+##################################
+#                                #
+##  Production Cuts parameters  ##
+#                                #
+##################################
+
+class CutsPerRegion(ParamModifier):
+    def __init__(self):
+        super(RusRoEcalElectron,self).__init__(1)
+    def apply(self, process):
+        process.g4SimHits.Physics.CutsPerRegion = cms.bool(self.params[0])
+        return process
+
+class DefaultCutValue(ParamModifier):
+    def __init__(self):
+        super(RusRoEcalElectron,self).__init__(1)
+    def apply(self, process):
+        process.g4SimHits.Physics.DefaultCutValue = cms.double(self.params[0])
+        return process
+
+
 ##########################
 #                        #  
 ##  Physics parameters  ##
