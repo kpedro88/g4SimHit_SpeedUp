@@ -32,7 +32,7 @@ changes = []
 
 #files
 filenames = []
-directory = 'run4'
+directory = 'run4' #directory where files are located
 
 fil = Path(directory).glob('*')
 for file in fil:
