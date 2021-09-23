@@ -80,8 +80,10 @@ p = 'DeltaChordSimple'
 #p = 'RusRoHcalGamma'
 
 #graphing the behavior of the parameter
-plt.plot(changes,time)
+plt.plot(changes,time,marker='o',label='Time Variation')
 plt.xlabel('Changes')
 plt.ylabel('Total Loop')
 plt.title('{}'.format(p), size = 15)
+plt.legend()
+plt.grid()
 plt.show()
