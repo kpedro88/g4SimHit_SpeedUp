@@ -70,6 +70,8 @@ for value in names:
         b = value[th+2:fr-2]
         changes.append(float(b))
 
+changes.sort()   #Organize the list from smallest to largest
+
 #Parameters, if you need to use any of them to produce the graph you just have to uncomment
 #p = 'EnergyThSimple'
 #p = 'DeltaOneStepSimple'
