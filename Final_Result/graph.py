@@ -22,11 +22,12 @@
 # - Number of Global Begin Lumi Calls:  1
 # - Number of Global Begin Run Calls: 1
 
-import glob
+import glob 
 import os
 import matplotlib.pyplot as plt
 import re
 
+#this function allows you to organize files by their decimal numbers
 numbers = re.compile(r'(\d+)')
 def numericalSort(value):
     parts = numbers.split(value)
@@ -51,152 +52,60 @@ fileE = []
 fileF = []
 directory = 'run2/'  #directory where files are located
 
-fil = sorted(glob.glob(directory + '*.txt'), key=numericalSort)
+fil = sorted(glob.glob(directory + '*.txt'), key=numericalSort) #the glob library allows extracting the files from a specific directory and the sorted function organizes the files
 for file in fil:
-        if file.startswith('run2/log_RusRoEcalGamma_'):
-                fileA.append(file)
+    if file.startswith('run2/log_RusRoEcalGamma_'):
+        fileA.append(file)
+    if file.startswith('run2/log_RusRoHcalGamma_'):
+        fileB.append(file)
+    if file.startswith('run2/log_RusRoMuonIronGamma_'):
+        fileC.append(file)
+    if file.startswith('run2/log_RusRoEcalNeutron_'):
+        fileD.append(file)
+    if file.startswith('run2/log_RusRoHcalNeutron_'):
+        fileE.append(file)
+    if file.startswith('run2/log_RusRoMuonIronNeutron_'):
+        fileF.append(file)
 
-for file in fil:
-        if file.startswith('run2/log_RusRoHcalGamma_'):
-                fileB.append(file)
-
-for file in fil:
-        if file.startswith('run2/log_RusRoMuonIronGamma_'):
-                fileC.append(file)
-
-for file in fil:
-        if file.startswith('run2/log_RusRoEcalNeutron_'):
-                fileD.append(file)
-
-for file in fil:
-        if file.startswith('run2/log_RusRoHcalNeutron_'):
-                fileE.append(file)
-
-for file in fil:
-        if file.startswith('run2/log_RusRoMuonIronNeutron_'):
-                fileF.append(file)
-
-#reading multiple files through one function
 #Files_A
 def files_A(filename):
-        try:
-                with open(filename) as f_obj:
-                        for line in f_obj:
-                                if line.startswith(' - Total loop:'):
-                                        one = line.find('  ')
-                                        #two = line.find('s')
-                                        a = line[one+2:]
-                                        #print(a)
-        except:
-                msg = filename + " file does not exist "
-                print(msg)
-        return timeA.append(float(a))
+	try:
+		with open(filename) as f_obj:
+			for line in f_obj:
+				if line.startswith(' - Total loop:'):
+					one = line.find('  ')
+					#two = line.find('s')	
+					a = line[one+2:]
+					#print(a)
+	except:
+		msg = filename + " file does not exist "
+		print(msg)
+	return float(a)
 
 #the for loop executes each of the files in the function
-for filename in fileA:
-        files_A(filename)
-
-#Files_B
-def files_B(filename):
-        try:
-                with open(filename) as f_obj:
-                        for line in f_obj:
-                                if line.startswith(' - Total loop:'):
-                                        one = line.find('  ')
-                                        #two = line.find('s')
-                                        a = line[one+2:]
-                                        #print(a)
-        except:
-                msg = filename + " file does not exist "
-                print(msg)
-        return timeB.append(float(a))
-
-#the for loop executes each of the files in the function
-for filename in fileB:
-        files_B(filename)
-
-#Files_C
-def files_C(filename):
-        try:
-                with open(filename) as f_obj:
-                        for line in f_obj:
-                                if line.startswith(' - Total loop:'):
-                                        one = line.find('  ')
-                                        #two = line.find('s')
-                                        a = line[one+2:]
-                                        #print(a)
-        except:
-                msg = filename + " file does not exist "
-                print(msg)
-        return timeC.append(float(a))
-
-#the for loop executes each of the files in the function
-for filename in fileC:
-        files_C(filename)
-
-#Files_D
-def files_D(filename):
-        try:
-                with open(filename) as f_obj:
-                        for line in f_obj:
-                                if line.startswith(' - Total loop:'):
-                                        one = line.find('  ')
-                                        #two = line.find('s')
-                                        a = line[one+2:]
-                                        #print(a)
-        except:
-                msg = filename + " file does not exist "
-                print(msg)
-        return timeD.append(float(a))
-
-#the for loop executes each of the files in the function
-for filename in fileD:
-        files_D(filename)
-
-#Files_E
-def files_E(filename):
-        try:
-                with open(filename) as f_obj:
-                        for line in f_obj:
-                                if line.startswith(' - Total loop:'):
-                                        one = line.find('  ')
-                                        #two = line.find('s')
-                                        a = line[one+2:]
-                                        #print(a)
-        except:
-                msg = filename + " file does not exist "
-                print(msg)
-        return timeE.append(float(a))
-
-#the for loop executes each of the files in the function
-for filename in fileE:
-        files_E(filename)
-
-#Files_F
-def files_F(filename):
-        try:
-                with open(filename) as f_obj:
-                        for line in f_obj:
-                                if line.startswith(' - Total loop:'):
-                                        one = line.find('  ')
-                                        #two = line.find('s')
-                                        a = line[one+2:]
-                                        #print(a)
-        except:
-                msg = filename + " file does not exist "
-                print(msg)
-        return timeF.append(float(a))
-
-#the for loop executes each of the files in the function
-for filename in fileF:
-        files_F(filename)
+for A,B,C,D,E,F in zip(fileA,fileB,fileC,fileD,fileE,fileF):
+    timeA.append(files_A(A))
+    timeB.append(files_A(B))
+    timeC.append(files_A(C))
+    timeD.append(files_A(D))
+    timeE.append(files_A(E))
+    timeF.append(files_A(F))
 
 #in this loop the value of the changes are extracted
 for value in fileA:
-        th = value.find('a_')
-        fr = value.find('x')
-        b = value[th+2:fr-2]
-        changes.append(float(b))
+	th = value.find('a_')
+	fr = value.find('x')
+	b = value[th+2:fr-2]
+	changes.append(float(b))
+	#print(value[th])
+
+#print(changes)
+#print(timeA)
+#print(timeB)
+#print(timeC)
+#print(timeD)
+#print(timeE)
+#print(timeF)
 
 #Parameters, if you need to use any of them to produce the graph you just have to uncomment
 #p = 'EnergyThSimple'
@@ -223,8 +132,7 @@ plt.xscale('log')
 plt.xlabel('Changes')
 plt.ylabel('Total Loop')
 plt.title('{}'.format(p), size = 15)
-#plt.legend()
-plt.legend(ncol=6,bbox_to_anchor=(1.1,-.1),loc=0,fontsize=7)
+plt.legend(ncol=1,bbox_to_anchor=(1.1,0),loc='center right',fontsize=7)
 plt.grid(True)
-#plt.tight_layout()
+plt.tight_layout()
 plt.show()
