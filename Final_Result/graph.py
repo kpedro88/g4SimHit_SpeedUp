@@ -108,8 +108,8 @@ for A,B,C,D,E,F in zip(testA,testB,testC,testD,testE,testF):
     tB.append(B[1])
     tC.append(C[1])
     tD.append(D[1])
-    tE.append(F[1])
-    tF.append(E[1])
+    tE.append(E[1])
+    tF.append(F[1])
 
 #print(x)
 #print(tA)
