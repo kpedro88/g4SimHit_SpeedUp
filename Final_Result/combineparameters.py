@@ -37,4 +37,5 @@ def files(filenames):
 for A in fileA:
     test.append(files(A))
 
+test = sorted(test,key=lambda x: x[0])
 print(test)
