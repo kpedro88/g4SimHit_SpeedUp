@@ -55,14 +55,20 @@ for b in changes:
     x.append(b[0])
     y.append(b[1])
 
+#dividing by the value nominal
+z1 = []
+for A in z:
+    z1.append(A/z[1])
+
 print(x)
 print(y)
-print(z)
+#print(z)
+print(z1)
 
 fig = plt.figure(figsize=(8,6))
 axes3d = Axes3D(fig)
-axes3d.plot(x,y,z)
-axes3d.scatter3D(x,y,z)
+axes3d.plot(x,y,z1)
+axes3d.scatter3D(x,y,z1)
 plt.xlabel('EnergyThSimple',size = 15)
 plt.ylabel('RusRoNeutronEnergyLimit',size = 15)
 axes3d.set_zlabel('Time Loop',size=15)
