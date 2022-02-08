@@ -1,12 +1,14 @@
 import glob
 import re
 import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d.axes3d import Axes3D
+import numpy as np 
 
 fileA = []
 test = []
 
 
-directory = 'run6/'  #directory where files are located
+directory = 'run7/'  #directory where files are located
 
 fil = glob.glob(directory + '*.txt')
 for file in fil:
@@ -38,4 +40,30 @@ for A in fileA:
     test.append(files(A))
 
 test = sorted(test,key=lambda x: x[0])
-print(test)
+#print(test)
+
+changes = []
+x = []
+y = []
+z = []
+
+for a in test:
+    changes.append(a[0])
+    z.append(a[1])
+
+for b in changes:
+    x.append(b[0])
+    y.append(b[1])
+
+print(x)
+print(y)
+print(z)
+
+fig = plt.figure(figsize=(8,6))
+axes3d = Axes3D(fig)
+axes3d.plot(x,y,z)
+axes3d.scatter3D(x,y,z)
+plt.xlabel('EnergyThSimple',size = 15)
+plt.ylabel('RusRoNeutronEnergyLimit',size = 15)
+axes3d.set_zlabel('Time Loop',size=15)
+plt.savefig('combine2.png', bbox_inches="tight")
