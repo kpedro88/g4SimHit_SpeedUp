@@ -8,11 +8,17 @@ fileA = []
 test = []
 
 
-directory = 'run7/'  #directory where files are located
+directory = 'run8/'  #directory where files are located
+di = 'run8a/'
 
 fil = glob.glob(directory + '*.txt')
 for file in fil:
-    if file.startswith(directory + 'log_EnergyThSimple_RusRoNeutronEnergyLimit_'):
+    if file.startswith(directory + 'log_EnergyThSimple_RusRoGammaEnergyLimit_'):
+        fileA.append(file)
+
+fil_a = glob.glob(di + '*.txt')
+for file in fil_a:
+    if file.startswith(di + 'log_EnergyThSimple_RusRoGammaEnergyLimit_'):
         fileA.append(file)
 
 def files(filenames):
@@ -57,12 +63,13 @@ for b in changes:
 
 #dividing by the value nominal
 z1 = []
+
 for A in z:
     z1.append(A/z[1])
 
 print(x)
 print(y)
-#print(z)
+print(z)
 print(z1)
 
 fig = plt.figure(figsize=(8,6))
